@@ -14,13 +14,11 @@ def create_new_memo
       csv << input.chomp.split(',')
     end
   end
-
 end
 
 def edit_existing_memo
   puts "拡張子を除いた編集するCSVファイル名を入力してください:"
   memo_name = gets.chomp.strip
-
  
   memo_name += '.csv'
 
@@ -41,7 +39,7 @@ def edit_existing_memo
   new_data = gets.chomp.split(',')
   data[row_index] = new_data
 
-  CSV.open(file_name, "w") do |csv|
+  CSV.open(memo_name, "w") do |csv|
     data.each { |row| csv << row }
   end
 
